@@ -109,8 +109,10 @@ pokedex-typescript-lite/
 │
 ├── .gitignore
 ├── package.json
-├── tsconfig.json
-└── README.md
+├── pc_box.json
+├── README.md
+└── tsconfig.json
+
 ```
 
 ## Funcionalidades
