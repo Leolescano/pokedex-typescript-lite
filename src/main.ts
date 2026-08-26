@@ -1,11 +1,16 @@
-import { PokemonResumo } from "./models/Pokemon";
+import { buscarPokemon } from "./services/PokeApiService";
 
-const pokemonTeste: PokemonResumo = {
-  id: 25,
-  nome: "pikachu",
-  tipos: ["electric"],
-  altura: 4,
-  peso: 60
-};
+async function main(): Promise<void> {
+  const pokemon = await buscarPokemon("pikachu");
 
-console.log(pokemonTeste);
+  if (pokemon !== null) {
+    console.log(`[OK] Pokémon encontrado: ${pokemon.nome}`);
+    console.log(
+      `#${pokemon.id} - ${pokemon.nome} | Tipos: ${pokemon.tipos.join(", ")} | Altura: ${pokemon.altura} | Peso: ${pokemon.peso}`
+    );
+  }
+
+  await buscarPokemon("pokemon-inexistente");
+}
+
+main();
