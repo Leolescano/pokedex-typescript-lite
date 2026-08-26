@@ -1,16 +1,32 @@
+import { CatalogoPokemon } from "./models/CatalogoPokemon";
 import { buscarPokemon } from "./services/PokeApiService";
 
 async function main(): Promise<void> {
-  const pokemon = await buscarPokemon("pikachu");
+  const catalogo = new CatalogoPokemon();
 
-  if (pokemon !== null) {
-    console.log(`[OK] Pokémon encontrado: ${pokemon.nome}`);
-    console.log(
-      `#${pokemon.id} - ${pokemon.nome} | Tipos: ${pokemon.tipos.join(", ")} | Altura: ${pokemon.altura} | Peso: ${pokemon.peso}`
-    );
+  const pikachu = await buscarPokemon("pikachu");
+
+  if (pikachu !== null) {
+    console.log(`[OK] Pokémon encontrado: ${pikachu.nome}`);
+    catalogo.adicionar(pikachu);
+    catalogo.adicionar(pikachu);
+  }
+
+  const charmander = await buscarPokemon("charmander");
+
+  if (charmander !== null) {
+    console.log(`[OK] Pokémon encontrado: ${charmander.nome}`);
+    catalogo.adicionar(charmander);
   }
 
   await buscarPokemon("pokemon-inexistente");
+
+  catalogo.listar();
+
+  catalogo.remover(25);
+  catalogo.listar();
+
+  catalogo.remover(999);
 }
 
 main();
