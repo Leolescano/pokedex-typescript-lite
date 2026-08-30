@@ -78,13 +78,11 @@ Para compilar o TypeScript:
 npm run build
 ```
 
-Para executar o código compilado:
+Para compilar e executar o projeto:
 
 ```bash
 npm run start
 ```
-
-Antes de usar `npm run start`, execute `npm run build`.
 
 ## Estrutura do projeto
 
@@ -109,6 +107,7 @@ pokedex-typescript-lite/
 │
 ├── .gitignore
 ├── package.json
+├── package-lock.json
 ├── pc_box.json
 ├── README.md
 └── tsconfig.json
@@ -246,6 +245,10 @@ Seus principais métodos são:
 - `listar`;
 - `remover`.
 
+### Arquivo pc_box.json
+
+O arquivo `pc_box.json` foi inicializado com um array vazio, conforme solicitado na estrutura do projeto. Nesta versão mínima, o catálogo funciona em memória e o arquivo fica preparado para uma futura implementação de persistência.
+
 ### Organização em camadas
 
 O projeto foi separado em camadas para manter as responsabilidades organizadas:
@@ -275,6 +278,7 @@ https://github.com/users/Leolescano/projects/1/views/1
 - `develop`
 - `feat/pokedex`
 - `docs/readme`
+- `chore/finalizacao`
 
 ## Melhorias futuras
 
