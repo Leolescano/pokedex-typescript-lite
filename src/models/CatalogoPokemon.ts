@@ -24,34 +24,34 @@ export class CatalogoPokemon {
   }
 
   listar(): void {
-  if (this.pokemons.length === 0) {
-    console.log("[AVISO] Catálogo vazio.");
-    return;
+    if (this.pokemons.length === 0) {
+      console.log("[AVISO] Catálogo vazio.");
+      return;
+    }
+
+    console.log("\nCatálogo atual:");
+
+    this.pokemons.forEach((pokemon) => {
+      console.log(formatarPokemon(pokemon));
+    });
   }
 
-  console.log("\nCatálogo atual:");
-
-  this.pokemons.forEach((pokemon) => {
-  console.log(formatarPokemon(pokemon));
-  });
- }
-
- remover(id: number): void {
-  const existe = this.pokemons.some(
-    (pokemon) => pokemon.id === id
-  );
-
-  if (!existe) {
-    console.log(
-      "[AVISO] Nenhum Pokémon encontrado com esse ID."
+  remover(id: number): void {
+    const existe = this.pokemons.some(
+      (pokemon) => pokemon.id === id
     );
-    return;
+
+    if (!existe) {
+      console.log(
+        "[AVISO] Nenhum Pokémon encontrado com esse ID."
+      );
+      return;
+    }
+
+    this.pokemons = this.pokemons.filter(
+      (pokemon) => pokemon.id !== id
+    );
+
+    console.log("[OK] Pokémon removido do catálogo.");
   }
-
-  this.pokemons = this.pokemons.filter(
-    (pokemon) => pokemon.id !== id
-  );
-
-  console.log("[OK] Pokémon removido do catálogo.");
- } 
 }
